@@ -42,7 +42,7 @@ export class WeatherComponent implements OnInit {
                 this.coords.longitude=cityData.coord["lon"];
                 this.coords.latitude = cityData.coord["lat"];
             }else{
-                this.errorMessage="Please enger a valid city name.";
+                this.errorMessage="Please enter a valid city name";
             }
          });
 
