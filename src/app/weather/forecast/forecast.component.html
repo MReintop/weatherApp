@@ -1,0 +1,19 @@
+<!---<h1>{{today |  date : 'EEEE' }}</h1>--->
+<table>
+    <tr >
+        <td *ngFor="let forecast of days">
+
+            <p>{{forecast.datetime | date:'EEEE'}}</p>
+            <h1>
+                <i [class]="forecast.main">
+                </i>
+            </h1>
+
+
+            <h3 *ngIf="deg">{{forecast.temperatureKelvin | kelvinToCelcius |  number:'1.0-0'}}°C</h3>
+            <h3  *ngIf="!deg">{{forecast.temperatureKelvin | kelvinToFarenheit |  number:'1.0-0'}}°F</h3>
+
+        </td>
+
+    </tr>
+</table>

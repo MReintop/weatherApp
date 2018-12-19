@@ -1,0 +1,51 @@
+
+<div id="content">
+    <h1>{{cityName}}</h1>
+    <h1>{{cityCurrentTime | date:'fullDate'}}</h1>
+
+    <table>
+
+        <tr>
+            <td>
+                <div  *ngFor="let detail of weatherDetails">
+                   <h3> {{detail.description | capitalize}}</h3>
+                </div>
+
+                <div *ngIf="deg">
+                    <h2>{{weatherNow | kelvinToCelcius | number:'1.0-0'}}° C </h2>
+                </div>
+
+                <div *ngIf="!deg">
+                    <h2>{{weatherNow | kelvinToFarenheit | number:'1.0-0'}}° F </h2>
+                </div>
+            </td>
+
+            <td>
+                <h2> <i [class]="iconData" id="icon"></i></h2>
+
+            </td>
+            <td *ngIf="dailyForecast.length">
+                <ul>
+                    <li *ngFor="let forecast of dailyForecast">
+
+                       <app-listforecast [timeOfDay]="forecast" [temp]="deg">  </app-listforecast>
+
+                    </li>
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+<!---
+<div *ngIf="weatherData">
+
+    <div *ngFor="let w of weatherData.list">
+    <h1></h1>
+    </div>
+
+</div>
+--->
+

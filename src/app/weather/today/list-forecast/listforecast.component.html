@@ -1,0 +1,3 @@
+
+<p *ngIf="temp" >{{timeOfDay.datetime | date:'HH:mm'}}   &nbsp;  {{timeOfDay.temperatureKelvin | kelvinToCelcius| number:'1.0-0'}}°C</p>
+<p *ngIf="!temp" >{{timeOfDay.datetime | date:'HH:mm'}}  &nbsp;   {{timeOfDay.temperatureKelvin | kelvinToFarenheit| number:'1.0-0'}}°F</p>

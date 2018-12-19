@@ -1,0 +1,64 @@
+
+
+<div class="main">
+<!--when we dont have coordinates--->
+
+    <div class="grid" *ngIf="coords.longitude!=0 && coords.latitude!=0">
+            <div class="locationName"><h1> {{cityName}}</h1></div>
+
+            <div class="celciusSwitch">
+                 <label class="switch">
+                    <input id="degrees" type="checkbox" [(ngModel)]="celcius" (click)="changeOnCheckBox()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+
+            <div class="buttonBack">
+                <button id="backIcon"  (click)="onBack()">
+
+                        <i class="material-icons">
+                          arrow_back
+                        </i>
+
+                </button>
+            </div>
+
+
+            <div class="todayForecast">
+                <app-today [coords]="coords" [deg]="celcius"></app-today>
+            </div>
+
+
+            <div class="weekForecast">
+                <app-forecast  [coords]="coords" [deg]="celcius"></app-forecast>
+            </div>
+
+    </div>
+<!--when we have coordinates--->
+    <div *ngIf="coords.longitude==0 && coords.latitude==0">
+
+         <form>
+                {{errorMessage}}
+
+
+             <div id="inputs">
+                <input id="cityInput" class="input" placeholder="City" type="text" [(ngModel)]="location" name = "loc"/>
+                <button (click)="getUserCoordinatesByCityName()" >
+                        <i class="material-icons">
+                        search
+                        </i>
+                 </button>
+             </div>
+
+            <p> OR </p>
+
+             <a (click)="getUserCoordinates()">
+                 <h3>Use my current position</h3>
+            </a>
+        </form>
+    </div>
+
+
+</div>
+
