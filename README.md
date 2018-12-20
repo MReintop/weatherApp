@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
 
-For the latst node package manager run -  `npm install`
+For the node package manager run -  `npm install`
 To install angular CLI - `npm install -g @angular/cli`
 
 ## Development server
