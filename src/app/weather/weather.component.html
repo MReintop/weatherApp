@@ -13,22 +13,17 @@
                 </label>
             </div>
 
-
             <div class="buttonBack">
                 <button id="backIcon"  (click)="onBack()">
-
-                        <i class="material-icons">
-                          arrow_back
-                        </i>
-
+                    <i class="material-icons">
+                         arrow_back
+                    </i>
                 </button>
             </div>
-
 
             <div class="todayForecast">
                 <app-today [coords]="coords" [deg]="celcius"></app-today>
             </div>
-
 
             <div class="weekForecast">
                 <app-forecast  [coords]="coords" [deg]="celcius"></app-forecast>
@@ -39,15 +34,14 @@
     <div *ngIf="coords.longitude==0 && coords.latitude==0">
 
          <form>
-                {{errorMessage}}
+            {{errorMessage}}
 
-
-             <div id="inputs">
+            <div id="inputs">
                 <input id="cityInput" class="input" placeholder="City" type="text" [(ngModel)]="location" name = "loc"/>
                 <button (click)="getUserCoordinatesByCityName()" >
-                        <i class="material-icons">
+                    <i class="material-icons">
                         search
-                        </i>
+                    </i>
                  </button>
              </div>
 

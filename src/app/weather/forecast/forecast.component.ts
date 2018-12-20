@@ -18,38 +18,29 @@ export class ForecastComponent implements OnInit {
     constructor( private weatherService: WeatherService) { }
     today:number;
 
-
-
     ngOnInit(){
-
          this.weatherService.getWeatherFromAPI(this.coords.longitude, this.coords.latitude).subscribe((weatherData:any)=>{
                 this.today= + weatherData.list[0].dt_txt.slice(8,10);
                 this.getForecasts(weatherData);
-
-
             });
 
     }
 
     getForecasts(weatherData){
-              for(let i=0; i<weatherData["list"].length;i++){
-                   let currentDay= +weatherData.list[i].dt_txt.slice(8,10);
-                   let currentHour= +weatherData.list[i].dt_txt.slice(11,13);
+        for(let i=0; i<weatherData["list"].length;i++){
+            let currentDay= +weatherData.list[i].dt_txt.slice(8,10);
+            let currentHour= +weatherData.list[i].dt_txt.slice(11,13);
 
-                    if(currentDay!=this.today && currentHour==12){
-
-                            let weatherObject : IForecast = {
-                                    "id": weatherData.list[i].dt,
-                                    "datetime":weatherData.list[i].dt_txt,
-                                    "temperatureKelvin": weatherData.list[i].main.temp,
-                                    "main":"wi wi-day-"+weatherData.list[i].weather[0].main.toLowerCase(),
-
-                                };
-                    this.days.push(weatherObject);
-                    }
-
-                }
-
+            if(currentDay!=this.today && currentHour==12){
+                let weatherObject : IForecast = {
+                "id": weatherData.list[i].dt,
+                "datetime":weatherData.list[i].dt_txt,
+                "temperatureKelvin": weatherData.list[i].main.temp,
+                "main":"wi wi-day-"+weatherData.list[i].weather[0].main.toLowerCase()
+                };
+                this.days.push(weatherObject);
+            }
+        }
     }
  }
 

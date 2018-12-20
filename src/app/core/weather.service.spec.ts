@@ -6,6 +6,4 @@ describe('WeatherService', () => {
   beforeEach(() => TestBed.configureTestingModule({
       providers:[WeatherService]
   }));
-
-
 });

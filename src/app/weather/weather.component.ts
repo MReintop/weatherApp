@@ -19,12 +19,10 @@ export class WeatherComponent implements OnInit {
     cityCurrentTime:string;
     constructor( private weatherService: WeatherService) { }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     onBack(){
         this.coords={"longitude":0, "latitude":0};
-
     }
 
     changeOnCheckBox(){
@@ -45,41 +43,38 @@ export class WeatherComponent implements OnInit {
                 this.errorMessage="Please enter a valid city name";
             }
          });
-
     }
 
 
     //Getting user current coordinates
     getUserCoordinates(){
-         if (window.navigator && window.navigator.geolocation) {
-        window.navigator.geolocation.getCurrentPosition(
-            position => {
-                this.coords.latitude=position.coords.latitude;
-                this.coords.longitude=position.coords.longitude;
-                this.cityName="Current Location";
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(
+                position => {
+                    this.coords.latitude=position.coords.latitude;
+                    this.coords.longitude=position.coords.longitude;
+                    this.cityName="Current Location";
 
-            },
-            error => {
-                switch (error.code) {
-                    case 1:
-                        console.log('Permission Denied');
-                        break;
-                    case 2:
-                        console.log('Position Unavailable');
-                        break;
-                    case 3:
-                        console.log('Timeout');
-                        break;
+                },
+                error => {
+                    switch (error.code) {
+                        case 1:
+                            console.log('Permission Denied');
+                            break;
+                        case 2:
+                            console.log('Position Unavailable');
+                            break;
+                        case 3:
+                            console.log('Timeout');
+                            break;
+                    }
                 }
-            }
-        );
-    };
+            );
+        };
     }
-
 
     capitalize(cityName:string){
           return cityName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-
     }
 }
 

@@ -45,7 +45,7 @@ describe('WeatherComponent', () => {
      expect(result).toBe('Test');
   });
 
- it('should toggle celcius variable',()=>{
+  it('should toggle celcius variable',()=>{
      expect(component.celcius).toBeTruthy();
      component.changeOnCheckBox();
      expect(component.celcius).toBeFalsy();

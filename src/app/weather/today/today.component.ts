@@ -27,7 +27,7 @@ export class TodayComponent implements OnInit {
             this.cityCurrentTime=cityTime.time;
             this.cityName=cityTime.name;
             this.weatherService.getWeatherFromAPI(this.coords.longitude,this.coords.latitude).subscribe((weatherData:any)=>{
-                //get current temperatura
+                //get current temperature
                 this.weatherNow=weatherData["list"][0].main.temp;
                 let date = new Date(weatherData["list"][0].dt_txt);
 
@@ -43,19 +43,13 @@ export class TodayComponent implements OnInit {
                             this.dailyForecast.push(object);
                      }
                  }
-
                  //get current weather description
                  this.weatherDetails=weatherData.list[0].weather;
-                 //get class variable for icon sty
+                 //get class variable for icon style
                  this.iconData=this.getIconData(weatherData["list"][0].weather[0].main.toLowerCase(),this.getTimeOfDay(this.cityCurrentTime));
-
-             });
-
+            });
         });
-
-
     }
-
 
     getIconData(description:string, timeofday:string){
             return "wi wi-"+timeofday+"-"+description;
@@ -69,7 +63,4 @@ export class TodayComponent implements OnInit {
             return "day";
         }
     }
-
-
-
 }

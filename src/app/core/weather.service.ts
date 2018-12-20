@@ -11,11 +11,7 @@ export class WeatherService {
     apiKey= 'fb04c66a704016dae226c2e0268c7262';
     baseUrl: string = '../../assets/';
     url = 'http://api.openweathermap.org/data/2.5/forecast?lat=';
-    constructor(public http: HttpClient) {
-
-  }
-
-
+    constructor(public http: HttpClient) {}
 
     //  to city details by city name
    getCityData(city:string): Observable<ICityData>{
@@ -27,7 +23,6 @@ export class WeatherService {
             }),
             catchError(this.handleError)
             )
-
     }
 
     //Get weather by longitude and latitude
@@ -35,20 +30,13 @@ export class WeatherService {
         return this.http.get(this.url + lat +'&lon='+lon+ '&appid=' + this.apiKey)
             .pipe(
                 catchError(this.handleError));
-
       }
-
-
-
-
 
     //to get city time
     getLocalTime(cityLon:number,cityLat:number){
         return this.http.get<any[]>("http://api.geonames.org/timezoneJSON?lat="+cityLat+"&lng="+cityLon+"&username=mreintop")
             .pipe(catchError(this.handleError));
     }
-
-
 
     //error handling
     private handleError(error:any){
@@ -59,8 +47,4 @@ export class WeatherService {
         }
         return Observable.throw(error || 'Server error');
     }
-
-
-
-
 }

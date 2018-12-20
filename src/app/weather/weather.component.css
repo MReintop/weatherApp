@@ -9,17 +9,16 @@ form {
 }
 
 input {
-      padding-left:10px;
-   font-size: 2em;
-     line-height: 30px;
+    padding-left:10px;
+    font-size: 2em;
+    line-height: 30px;
     text-align: center;
     border: 0;
     outline: 0;
     margin:0;
     background: transparent;
-     border-bottom: 1px solid #2c2a2a;
+    border-bottom: 1px solid #2c2a2a;
 }
-
 
 #backIcon{
        background-color: Transparent;
@@ -27,12 +26,10 @@ input {
      border: none;
     cursor:pointer;
     overflow: hidden;
-
 }
 
 #backIcon i{
     font-size:30px;
-
 }
 
 #inputs button{
@@ -99,7 +96,6 @@ input {
 input:checked + .slider {
   background-color: white;
 }
-
 
 input:checked + .slider:before {
   -webkit-transform: translateX(27px);
